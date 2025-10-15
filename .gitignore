@@ -1,0 +1,15 @@
+# Node
+node_modules
+dist
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-error.log
+.DS_Store
+
+# Tests/output
+coverage
+
+# Env
+.env
+.env.*

@@ -1,0 +1,49 @@
+{
+  "name": "pocketbase-better-auth",
+  "version": "1.0.0",
+  "description": "Better Auth PocketBase Adapter",
+  "homepage": "https://github.com/Lightinn/pocketbase-better-auth",
+  "author": "Bréval LE FLOCH",
+  "license": "MIT",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": "./dist/index.js",
+  "files": [
+    "dist",
+    "src",
+    "schema"
+  ],
+  "scripts": {
+    "build": "tsup --clean",
+    "dev": "tsc -w",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "pnpm exec biome check --write",
+    "prepublishOnly": "rm -rf dist && pnpm build"
+  },
+  "keywords": [
+    "typescript",
+    "pocketbase",
+    "better",
+    "better-auth",
+    "auth",
+    "adapter"
+  ],
+  "peerDependencies": {
+    "better-auth": ">=1.2.6",
+    "pocketbase": ">=0.20.0"
+  },
+  "devDependencies": {
+    "better-auth": "^1.3.27",
+    "esbuild-plugin-preserve-directives": "^0.0.11",
+    "pocketbase": "^0.26.2",
+    "tsup": "^8.4.0",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  },
+  "packageManager": "pnpm@10.8.1",
+  "dependencies": {
+    "biome": "^0.3.3"
+  }
+}
