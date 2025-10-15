@@ -5,14 +5,16 @@
   "description": "Better Auth PocketBase Adapter",
   "homepage": "https://github.com/Lightinn/pocketbase-better-auth",
   "author": "Bréval LE FLOCH",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": "./dist/index.js",
   "files": [
     "dist",
     "src",
-    "schema"
+    "schema",
+    "LICENSE",
+    "NOTICE"
   ],
   "scripts": {
     "build": "tsup --clean",
