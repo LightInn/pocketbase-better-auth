@@ -36,6 +36,12 @@ export interface PocketBaseAdapterConfig {
 
   /**
    * Whether to use plural names for the auth tables
+   * Set to `false` to use singular names: user, session, account, verification
+   * Set to `true` to use plural names: users, sessions, accounts, verifications
+   * 
+   * The provided schema in `schema/pocketbase.collections.json` uses singular names,
+   * so set this to `false` if using that schema.
+   * 
    * @default true
    */
   usePlural?: boolean;
