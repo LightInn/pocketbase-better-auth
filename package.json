@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "pocketbase-better-auth",
   "version": "1.0.0",
   "description": "Better Auth PocketBase Adapter",
