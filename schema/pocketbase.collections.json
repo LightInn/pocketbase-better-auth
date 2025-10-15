@@ -1,351 +1,475 @@
-{
-  "collections": [
-    {
-      "name": "user",
-      "type": "base",
-      "schema": [
-        { 
-          "name": "name", 
-          "type": "text", 
-          "required": false,
-          "options": {
-            "min": null,
-            "max": null,
-            "pattern": ""
-          }
-        },
-        { 
-          "name": "email", 
-          "type": "email", 
-          "required": true, 
-          "unique": true,
-          "options": {
-            "exceptDomains": null,
-            "onlyDomains": null
-          }
-        },
-        { 
-          "name": "emailVerified", 
-          "type": "bool", 
-          "required": false,
-          "options": {}
-        },
-        { 
-          "name": "image", 
-          "type": "url", 
-          "required": false,
-          "options": {
-            "exceptDomains": null,
-            "onlyDomains": null
-          }
-        },
-        {
-          "name": "createdAt",
-          "type": "date",
-          "required": true,
-          "options": {
-            "min": "",
-            "max": ""
-          }
-        },
-        {
-          "name": "updatedAt",
-          "type": "date",
-          "required": true,
-          "options": {
-            "min": "",
-            "max": ""
-          }
+[
+  {
+    "id": "user_collection",
+    "name": "user",
+    "type": "base",
+    "system": false,
+    "schema": [
+      {
+        "id": "user_name",
+        "name": "name",
+        "type": "text",
+        "system": false,
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": null,
+          "max": null,
+          "pattern": ""
         }
-      ],
-      "indexes": [
-        "CREATE INDEX idx_user_email ON user (email)"
-      ],
-      "listRule": null,
-      "viewRule": null,
-      "createRule": null,
-      "updateRule": null,
-      "deleteRule": null,
-      "options": {}
-    },
-    {
-      "name": "session",
-      "type": "base",
-      "schema": [
-        { 
-          "name": "userId", 
-          "type": "text", 
-          "required": true,
-          "options": {
-            "min": null,
-            "max": null,
-            "pattern": ""
-          }
-        },
-        { 
-          "name": "expiresAt", 
-          "type": "date", 
-          "required": true,
-          "options": {
-            "min": "",
-            "max": ""
-          }
-        },
-        { 
-          "name": "token", 
-          "type": "text", 
-          "required": true, 
-          "unique": true,
-          "options": {
-            "min": null,
-            "max": null,
-            "pattern": ""
-          }
-        },
-        { 
-          "name": "ipAddress", 
-          "type": "text", 
-          "required": false,
-          "options": {
-            "min": null,
-            "max": null,
-            "pattern": ""
-          }
-        },
-        { 
-          "name": "userAgent", 
-          "type": "text", 
-          "required": false,
-          "options": {
-            "min": null,
-            "max": null,
-            "pattern": ""
-          }
-        },
-        {
-          "name": "createdAt",
-          "type": "date",
-          "required": true,
-          "options": {
-            "min": "",
-            "max": ""
-          }
-        },
-        {
-          "name": "updatedAt",
-          "type": "date",
-          "required": true,
-          "options": {
-            "min": "",
-            "max": ""
-          }
+      },
+      {
+        "id": "user_email",
+        "name": "email",
+        "type": "email",
+        "system": false,
+        "required": true,
+        "presentable": false,
+        "unique": true,
+        "options": {
+          "exceptDomains": null,
+          "onlyDomains": null
         }
-      ],
-      "indexes": [
-        "CREATE INDEX idx_session_token ON session (token)",
-        "CREATE INDEX idx_session_userId ON session (userId)"
-      ],
-      "listRule": null,
-      "viewRule": null,
-      "createRule": null,
-      "updateRule": null,
-      "deleteRule": null,
-      "options": {}
-    },
-    {
-      "name": "account",
-      "type": "base",
-      "schema": [
-        { 
-          "name": "userId", 
-          "type": "text", 
-          "required": true,
-          "options": {
-            "min": null,
-            "max": null,
-            "pattern": ""
-          }
-        },
-        { 
-          "name": "accountId", 
-          "type": "text", 
-          "required": true,
-          "options": {
-            "min": null,
-            "max": null,
-            "pattern": ""
-          }
-        },
-        { 
-          "name": "providerId", 
-          "type": "text", 
-          "required": true,
-          "options": {
-            "min": null,
-            "max": null,
-            "pattern": ""
-          }
-        },
-        { 
-          "name": "accessToken", 
-          "type": "text", 
-          "required": false,
-          "options": {
-            "min": null,
-            "max": null,
-            "pattern": ""
-          }
-        },
-        { 
-          "name": "refreshToken", 
-          "type": "text", 
-          "required": false,
-          "options": {
-            "min": null,
-            "max": null,
-            "pattern": ""
-          }
-        },
-        { 
-          "name": "idToken", 
-          "type": "text", 
-          "required": false,
-          "options": {
-            "min": null,
-            "max": null,
-            "pattern": ""
-          }
-        },
-        { 
-          "name": "accessTokenExpiresAt", 
-          "type": "date", 
-          "required": false,
-          "options": {
-            "min": "",
-            "max": ""
-          }
-        },
-        { 
-          "name": "refreshTokenExpiresAt", 
-          "type": "date", 
-          "required": false,
-          "options": {
-            "min": "",
-            "max": ""
-          }
-        },
-        { 
-          "name": "scope", 
-          "type": "text", 
-          "required": false,
-          "options": {
-            "min": null,
-            "max": null,
-            "pattern": ""
-          }
-        },
-        { 
-          "name": "password", 
-          "type": "text", 
-          "required": false,
-          "options": {
-            "min": null,
-            "max": null,
-            "pattern": ""
-          }
-        },
-        {
-          "name": "createdAt",
-          "type": "date",
-          "required": true,
-          "options": {
-            "min": "",
-            "max": ""
-          }
-        },
-        {
-          "name": "updatedAt",
-          "type": "date",
-          "required": true,
-          "options": {
-            "min": "",
-            "max": ""
-          }
+      },
+      {
+        "id": "user_emailVerified",
+        "name": "emailVerified",
+        "type": "bool",
+        "system": false,
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {}
+      },
+      {
+        "id": "user_image",
+        "name": "image",
+        "type": "url",
+        "system": false,
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "exceptDomains": null,
+          "onlyDomains": null
         }
-      ],
-      "indexes": [
-        "CREATE INDEX idx_account_userId ON account (userId)",
-        "CREATE UNIQUE INDEX idx_account_provider_pair ON account (providerId, accountId)"
-      ],
-      "listRule": null,
-      "viewRule": null,
-      "createRule": null,
-      "updateRule": null,
-      "deleteRule": null,
-      "options": {}
-    },
-    {
-      "name": "verification",
-      "type": "base",
-      "schema": [
-        { 
-          "name": "identifier", 
-          "type": "text", 
-          "required": true,
-          "options": {
-            "min": null,
-            "max": null,
-            "pattern": ""
-          }
-        },
-        { 
-          "name": "value", 
-          "type": "text", 
-          "required": true,
-          "options": {
-            "min": null,
-            "max": null,
-            "pattern": ""
-          }
-        },
-        { 
-          "name": "expiresAt", 
-          "type": "date", 
-          "required": true,
-          "options": {
-            "min": "",
-            "max": ""
-          }
-        },
-        {
-          "name": "createdAt",
-          "type": "date",
-          "required": false,
-          "options": {
-            "min": "",
-            "max": ""
-          }
-        },
-        {
-          "name": "updatedAt",
-          "type": "date",
-          "required": false,
-          "options": {
-            "min": "",
-            "max": ""
-          }
+      },
+      {
+        "id": "user_createdAt",
+        "name": "createdAt",
+        "type": "date",
+        "system": false,
+        "required": true,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": "",
+          "max": ""
         }
-      ],
-      "indexes": [
-        "CREATE INDEX idx_verification_identifier ON verification (identifier)",
-        "CREATE INDEX idx_verification_expiresAt ON verification (expiresAt)"
-      ],
-      "listRule": null,
-      "viewRule": null,
-      "createRule": null,
-      "updateRule": null,
-      "deleteRule": null,
-      "options": {}
-    }
-  ]
-}
+      },
+      {
+        "id": "user_updatedAt",
+        "name": "updatedAt",
+        "type": "date",
+        "system": false,
+        "required": true,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": "",
+          "max": ""
+        }
+      }
+    ],
+    "indexes": [
+      "CREATE INDEX idx_user_email ON user (email)"
+    ],
+    "listRule": null,
+    "viewRule": null,
+    "createRule": null,
+    "updateRule": null,
+    "deleteRule": null,
+    "options": {}
+  },
+  {
+    "id": "session_collection",
+    "name": "session",
+    "type": "base",
+    "system": false,
+    "schema": [
+      {
+        "id": "session_userId",
+        "name": "userId",
+        "type": "text",
+        "system": false,
+        "required": true,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": null,
+          "max": null,
+          "pattern": ""
+        }
+      },
+      {
+        "id": "session_expiresAt",
+        "name": "expiresAt",
+        "type": "date",
+        "system": false,
+        "required": true,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": "",
+          "max": ""
+        }
+      },
+      {
+        "id": "session_token",
+        "name": "token",
+        "type": "text",
+        "system": false,
+        "required": true,
+        "presentable": false,
+        "unique": true,
+        "options": {
+          "min": null,
+          "max": null,
+          "pattern": ""
+        }
+      },
+      {
+        "id": "session_ipAddress",
+        "name": "ipAddress",
+        "type": "text",
+        "system": false,
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": null,
+          "max": null,
+          "pattern": ""
+        }
+      },
+      {
+        "id": "session_userAgent",
+        "name": "userAgent",
+        "type": "text",
+        "system": false,
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": null,
+          "max": null,
+          "pattern": ""
+        }
+      },
+      {
+        "id": "session_createdAt",
+        "name": "createdAt",
+        "type": "date",
+        "system": false,
+        "required": true,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": "",
+          "max": ""
+        }
+      },
+      {
+        "id": "session_updatedAt",
+        "name": "updatedAt",
+        "type": "date",
+        "system": false,
+        "required": true,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": "",
+          "max": ""
+        }
+      }
+    ],
+    "indexes": [
+      "CREATE INDEX idx_session_token ON session (token)",
+      "CREATE INDEX idx_session_userId ON session (userId)"
+    ],
+    "listRule": null,
+    "viewRule": null,
+    "createRule": null,
+    "updateRule": null,
+    "deleteRule": null,
+    "options": {}
+  },
+  {
+    "id": "account_collection",
+    "name": "account",
+    "type": "base",
+    "system": false,
+    "schema": [
+      {
+        "id": "account_userId",
+        "name": "userId",
+        "type": "text",
+        "system": false,
+        "required": true,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": null,
+          "max": null,
+          "pattern": ""
+        }
+      },
+      {
+        "id": "account_accountId",
+        "name": "accountId",
+        "type": "text",
+        "system": false,
+        "required": true,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": null,
+          "max": null,
+          "pattern": ""
+        }
+      },
+      {
+        "id": "account_providerId",
+        "name": "providerId",
+        "type": "text",
+        "system": false,
+        "required": true,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": null,
+          "max": null,
+          "pattern": ""
+        }
+      },
+      {
+        "id": "account_accessToken",
+        "name": "accessToken",
+        "type": "text",
+        "system": false,
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": null,
+          "max": null,
+          "pattern": ""
+        }
+      },
+      {
+        "id": "account_refreshToken",
+        "name": "refreshToken",
+        "type": "text",
+        "system": false,
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": null,
+          "max": null,
+          "pattern": ""
+        }
+      },
+      {
+        "id": "account_idToken",
+        "name": "idToken",
+        "type": "text",
+        "system": false,
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": null,
+          "max": null,
+          "pattern": ""
+        }
+      },
+      {
+        "id": "account_accessTokenExpiresAt",
+        "name": "accessTokenExpiresAt",
+        "type": "date",
+        "system": false,
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": "",
+          "max": ""
+        }
+      },
+      {
+        "id": "account_refreshTokenExpiresAt",
+        "name": "refreshTokenExpiresAt",
+        "type": "date",
+        "system": false,
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": "",
+          "max": ""
+        }
+      },
+      {
+        "id": "account_scope",
+        "name": "scope",
+        "type": "text",
+        "system": false,
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": null,
+          "max": null,
+          "pattern": ""
+        }
+      },
+      {
+        "id": "account_password",
+        "name": "password",
+        "type": "text",
+        "system": false,
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": null,
+          "max": null,
+          "pattern": ""
+        }
+      },
+      {
+        "id": "account_createdAt",
+        "name": "createdAt",
+        "type": "date",
+        "system": false,
+        "required": true,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": "",
+          "max": ""
+        }
+      },
+      {
+        "id": "account_updatedAt",
+        "name": "updatedAt",
+        "type": "date",
+        "system": false,
+        "required": true,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": "",
+          "max": ""
+        }
+      }
+    ],
+    "indexes": [
+      "CREATE INDEX idx_account_userId ON account (userId)",
+      "CREATE UNIQUE INDEX idx_account_provider_pair ON account (providerId, accountId)"
+    ],
+    "listRule": null,
+    "viewRule": null,
+    "createRule": null,
+    "updateRule": null,
+    "deleteRule": null,
+    "options": {}
+  },
+  {
+    "id": "verification_collection",
+    "name": "verification",
+    "type": "base",
+    "system": false,
+    "schema": [
+      {
+        "id": "verification_identifier",
+        "name": "identifier",
+        "type": "text",
+        "system": false,
+        "required": true,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": null,
+          "max": null,
+          "pattern": ""
+        }
+      },
+      {
+        "id": "verification_value",
+        "name": "value",
+        "type": "text",
+        "system": false,
+        "required": true,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": null,
+          "max": null,
+          "pattern": ""
+        }
+      },
+      {
+        "id": "verification_expiresAt",
+        "name": "expiresAt",
+        "type": "date",
+        "system": false,
+        "required": true,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": "",
+          "max": ""
+        }
+      },
+      {
+        "id": "verification_createdAt",
+        "name": "createdAt",
+        "type": "date",
+        "system": false,
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": "",
+          "max": ""
+        }
+      },
+      {
+        "id": "verification_updatedAt",
+        "name": "updatedAt",
+        "type": "date",
+        "system": false,
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": "",
+          "max": ""
+        }
+      }
+    ],
+    "indexes": [
+      "CREATE INDEX idx_verification_identifier ON verification (identifier)",
+      "CREATE INDEX idx_verification_expiresAt ON verification (expiresAt)"
+    ],
+    "listRule": null,
+    "viewRule": null,
+    "createRule": null,
+    "updateRule": null,
+    "deleteRule": null,
+    "options": {}
+  }
+]
