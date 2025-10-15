@@ -4,82 +4,92 @@
     "name": "user",
     "type": "base",
     "system": false,
-    "schema": [
+    "fields": [
       {
-        "id": "user_name",
-        "name": "name",
-        "type": "text",
-        "system": false,
-        "required": false,
+        "autogeneratePattern": "[a-z0-9]{15}",
+        "hidden": false,
+        "id": "text3208210256",
+        "max": 15,
+        "min": 15,
+        "name": "id",
+        "pattern": "^[a-z0-9]+$",
         "presentable": false,
-        "unique": false,
-        "options": {
-          "min": null,
-          "max": null,
-          "pattern": ""
-        }
+        "primaryKey": true,
+        "required": true,
+        "system": true,
+        "type": "text"
       },
       {
+        "hidden": false,
+        "id": "user_name",
+        "max": 0,
+        "min": 0,
+        "name": "name",
+        "pattern": "",
+        "presentable": false,
+        "primaryKey": false,
+        "required": false,
+        "system": false,
+        "type": "text"
+      },
+      {
+        "exceptDomains": [],
+        "hidden": false,
         "id": "user_email",
         "name": "email",
-        "type": "email",
-        "system": false,
-        "required": true,
+        "onlyDomains": [],
         "presentable": false,
-        "unique": true,
-        "options": {
-          "exceptDomains": null,
-          "onlyDomains": null
-        }
+        "primaryKey": false,
+        "required": true,
+        "system": false,
+        "type": "email",
+        "unique": true
       },
       {
+        "hidden": false,
         "id": "user_emailVerified",
         "name": "emailVerified",
-        "type": "bool",
-        "system": false,
-        "required": false,
         "presentable": false,
-        "unique": false,
-        "options": {}
+        "primaryKey": false,
+        "required": false,
+        "system": false,
+        "type": "bool"
       },
       {
+        "exceptDomains": [],
+        "hidden": false,
         "id": "user_image",
         "name": "image",
-        "type": "url",
-        "system": false,
+        "onlyDomains": [],
+        "presentable": false,
+        "primaryKey": false,
         "required": false,
-        "presentable": false,
-        "unique": false,
-        "options": {
-          "exceptDomains": null,
-          "onlyDomains": null
-        }
+        "system": false,
+        "type": "url"
       },
       {
+        "hidden": false,
         "id": "user_createdAt",
+        "max": "",
+        "min": "",
         "name": "createdAt",
-        "type": "date",
-        "system": false,
-        "required": true,
         "presentable": false,
-        "unique": false,
-        "options": {
-          "min": "",
-          "max": ""
-        }
+        "primaryKey": false,
+        "required": true,
+        "system": false,
+        "type": "date"
       },
       {
+        "hidden": false,
         "id": "user_updatedAt",
+        "max": "",
+        "min": "",
         "name": "updatedAt",
-        "type": "date",
-        "system": false,
-        "required": true,
         "presentable": false,
-        "unique": false,
-        "options": {
-          "min": "",
-          "max": ""
-        }
+        "primaryKey": false,
+        "required": true,
+        "system": false,
+        "type": "date"
       }
     ],
     "indexes": [],
@@ -87,109 +97,116 @@
     "viewRule": null,
     "createRule": null,
     "updateRule": null,
-    "deleteRule": null,
-    "options": {}
+    "deleteRule": null
   },
   {
     "id": "session_collection",
     "name": "session",
     "type": "base",
     "system": false,
-    "schema": [
+    "fields": [
       {
+        "autogeneratePattern": "[a-z0-9]{15}",
+        "hidden": false,
+        "id": "text3208210256",
+        "max": 15,
+        "min": 15,
+        "name": "id",
+        "pattern": "^[a-z0-9]+$",
+        "presentable": false,
+        "primaryKey": true,
+        "required": true,
+        "system": true,
+        "type": "text"
+      },
+      {
+        "hidden": false,
         "id": "session_userId",
+        "max": 0,
+        "min": 0,
         "name": "userId",
-        "type": "text",
-        "system": false,
-        "required": true,
+        "pattern": "",
         "presentable": false,
-        "unique": false,
-        "options": {
-          "min": null,
-          "max": null,
-          "pattern": ""
-        }
+        "primaryKey": false,
+        "required": true,
+        "system": false,
+        "type": "text"
       },
       {
+        "hidden": false,
         "id": "session_expiresAt",
+        "max": "",
+        "min": "",
         "name": "expiresAt",
-        "type": "date",
-        "system": false,
-        "required": true,
         "presentable": false,
-        "unique": false,
-        "options": {
-          "min": "",
-          "max": ""
-        }
+        "primaryKey": false,
+        "required": true,
+        "system": false,
+        "type": "date"
       },
       {
+        "hidden": false,
         "id": "session_token",
+        "max": 0,
+        "min": 0,
         "name": "token",
-        "type": "text",
-        "system": false,
-        "required": true,
+        "pattern": "",
         "presentable": false,
-        "unique": true,
-        "options": {
-          "min": null,
-          "max": null,
-          "pattern": ""
-        }
+        "primaryKey": false,
+        "required": true,
+        "system": false,
+        "type": "text",
+        "unique": true
       },
       {
+        "hidden": false,
         "id": "session_ipAddress",
+        "max": 0,
+        "min": 0,
         "name": "ipAddress",
-        "type": "text",
-        "system": false,
-        "required": false,
+        "pattern": "",
         "presentable": false,
-        "unique": false,
-        "options": {
-          "min": null,
-          "max": null,
-          "pattern": ""
-        }
+        "primaryKey": false,
+        "required": false,
+        "system": false,
+        "type": "text"
       },
       {
+        "hidden": false,
         "id": "session_userAgent",
+        "max": 0,
+        "min": 0,
         "name": "userAgent",
-        "type": "text",
-        "system": false,
+        "pattern": "",
+        "presentable": false,
+        "primaryKey": false,
         "required": false,
-        "presentable": false,
-        "unique": false,
-        "options": {
-          "min": null,
-          "max": null,
-          "pattern": ""
-        }
+        "system": false,
+        "type": "text"
       },
       {
+        "hidden": false,
         "id": "session_createdAt",
+        "max": "",
+        "min": "",
         "name": "createdAt",
-        "type": "date",
-        "system": false,
-        "required": true,
         "presentable": false,
-        "unique": false,
-        "options": {
-          "min": "",
-          "max": ""
-        }
+        "primaryKey": false,
+        "required": true,
+        "system": false,
+        "type": "date"
       },
       {
+        "hidden": false,
         "id": "session_updatedAt",
+        "max": "",
+        "min": "",
         "name": "updatedAt",
-        "type": "date",
-        "system": false,
-        "required": true,
         "presentable": false,
-        "unique": false,
-        "options": {
-          "min": "",
-          "max": ""
-        }
+        "primaryKey": false,
+        "required": true,
+        "system": false,
+        "type": "date"
       }
     ],
     "indexes": [],
@@ -197,178 +214,179 @@
     "viewRule": null,
     "createRule": null,
     "updateRule": null,
-    "deleteRule": null,
-    "options": {}
+    "deleteRule": null
   },
   {
     "id": "account_collection",
     "name": "account",
     "type": "base",
     "system": false,
-    "schema": [
+    "fields": [
       {
+        "autogeneratePattern": "[a-z0-9]{15}",
+        "hidden": false,
+        "id": "text3208210256",
+        "max": 15,
+        "min": 15,
+        "name": "id",
+        "pattern": "^[a-z0-9]+$",
+        "presentable": false,
+        "primaryKey": true,
+        "required": true,
+        "system": true,
+        "type": "text"
+      },
+      {
+        "hidden": false,
         "id": "account_userId",
+        "max": 0,
+        "min": 0,
         "name": "userId",
-        "type": "text",
-        "system": false,
-        "required": true,
+        "pattern": "",
         "presentable": false,
-        "unique": false,
-        "options": {
-          "min": null,
-          "max": null,
-          "pattern": ""
-        }
+        "primaryKey": false,
+        "required": true,
+        "system": false,
+        "type": "text"
       },
       {
+        "hidden": false,
         "id": "account_accountId",
+        "max": 0,
+        "min": 0,
         "name": "accountId",
-        "type": "text",
-        "system": false,
-        "required": true,
+        "pattern": "",
         "presentable": false,
-        "unique": false,
-        "options": {
-          "min": null,
-          "max": null,
-          "pattern": ""
-        }
+        "primaryKey": false,
+        "required": true,
+        "system": false,
+        "type": "text"
       },
       {
+        "hidden": false,
         "id": "account_providerId",
+        "max": 0,
+        "min": 0,
         "name": "providerId",
-        "type": "text",
-        "system": false,
-        "required": true,
+        "pattern": "",
         "presentable": false,
-        "unique": false,
-        "options": {
-          "min": null,
-          "max": null,
-          "pattern": ""
-        }
+        "primaryKey": false,
+        "required": true,
+        "system": false,
+        "type": "text"
       },
       {
+        "hidden": false,
         "id": "account_accessToken",
+        "max": 0,
+        "min": 0,
         "name": "accessToken",
-        "type": "text",
-        "system": false,
-        "required": false,
+        "pattern": "",
         "presentable": false,
-        "unique": false,
-        "options": {
-          "min": null,
-          "max": null,
-          "pattern": ""
-        }
+        "primaryKey": false,
+        "required": false,
+        "system": false,
+        "type": "text"
       },
       {
+        "hidden": false,
         "id": "account_refreshToken",
+        "max": 0,
+        "min": 0,
         "name": "refreshToken",
-        "type": "text",
-        "system": false,
-        "required": false,
+        "pattern": "",
         "presentable": false,
-        "unique": false,
-        "options": {
-          "min": null,
-          "max": null,
-          "pattern": ""
-        }
+        "primaryKey": false,
+        "required": false,
+        "system": false,
+        "type": "text"
       },
       {
+        "hidden": false,
         "id": "account_idToken",
+        "max": 0,
+        "min": 0,
         "name": "idToken",
-        "type": "text",
-        "system": false,
-        "required": false,
+        "pattern": "",
         "presentable": false,
-        "unique": false,
-        "options": {
-          "min": null,
-          "max": null,
-          "pattern": ""
-        }
+        "primaryKey": false,
+        "required": false,
+        "system": false,
+        "type": "text"
       },
       {
+        "hidden": false,
         "id": "account_accessTokenExpiresAt",
+        "max": "",
+        "min": "",
         "name": "accessTokenExpiresAt",
-        "type": "date",
-        "system": false,
-        "required": false,
         "presentable": false,
-        "unique": false,
-        "options": {
-          "min": "",
-          "max": ""
-        }
+        "primaryKey": false,
+        "required": false,
+        "system": false,
+        "type": "date"
       },
       {
+        "hidden": false,
         "id": "account_refreshTokenExpiresAt",
+        "max": "",
+        "min": "",
         "name": "refreshTokenExpiresAt",
-        "type": "date",
-        "system": false,
-        "required": false,
         "presentable": false,
-        "unique": false,
-        "options": {
-          "min": "",
-          "max": ""
-        }
+        "primaryKey": false,
+        "required": false,
+        "system": false,
+        "type": "date"
       },
       {
+        "hidden": false,
         "id": "account_scope",
+        "max": 0,
+        "min": 0,
         "name": "scope",
-        "type": "text",
-        "system": false,
-        "required": false,
+        "pattern": "",
         "presentable": false,
-        "unique": false,
-        "options": {
-          "min": null,
-          "max": null,
-          "pattern": ""
-        }
+        "primaryKey": false,
+        "required": false,
+        "system": false,
+        "type": "text"
       },
       {
+        "hidden": false,
         "id": "account_password",
+        "max": 0,
+        "min": 0,
         "name": "password",
-        "type": "text",
-        "system": false,
+        "pattern": "",
+        "presentable": false,
+        "primaryKey": false,
         "required": false,
-        "presentable": false,
-        "unique": false,
-        "options": {
-          "min": null,
-          "max": null,
-          "pattern": ""
-        }
+        "system": false,
+        "type": "text"
       },
       {
+        "hidden": false,
         "id": "account_createdAt",
+        "max": "",
+        "min": "",
         "name": "createdAt",
-        "type": "date",
-        "system": false,
-        "required": true,
         "presentable": false,
-        "unique": false,
-        "options": {
-          "min": "",
-          "max": ""
-        }
+        "primaryKey": false,
+        "required": true,
+        "system": false,
+        "type": "date"
       },
       {
+        "hidden": false,
         "id": "account_updatedAt",
+        "max": "",
+        "min": "",
         "name": "updatedAt",
-        "type": "date",
-        "system": false,
-        "required": true,
         "presentable": false,
-        "unique": false,
-        "options": {
-          "min": "",
-          "max": ""
-        }
+        "primaryKey": false,
+        "required": true,
+        "system": false,
+        "type": "date"
       }
     ],
     "indexes": [],
@@ -376,81 +394,89 @@
     "viewRule": null,
     "createRule": null,
     "updateRule": null,
-    "deleteRule": null,
-    "options": {}
+    "deleteRule": null
   },
   {
     "id": "verification_collection",
     "name": "verification",
     "type": "base",
     "system": false,
-    "schema": [
+    "fields": [
       {
+        "autogeneratePattern": "[a-z0-9]{15}",
+        "hidden": false,
+        "id": "text3208210256",
+        "max": 15,
+        "min": 15,
+        "name": "id",
+        "pattern": "^[a-z0-9]+$",
+        "presentable": false,
+        "primaryKey": true,
+        "required": true,
+        "system": true,
+        "type": "text"
+      },
+      {
+        "hidden": false,
         "id": "verification_identifier",
+        "max": 0,
+        "min": 0,
         "name": "identifier",
-        "type": "text",
-        "system": false,
-        "required": true,
+        "pattern": "",
         "presentable": false,
-        "unique": false,
-        "options": {
-          "min": null,
-          "max": null,
-          "pattern": ""
-        }
+        "primaryKey": false,
+        "required": true,
+        "system": false,
+        "type": "text"
       },
       {
+        "hidden": false,
         "id": "verification_value",
+        "max": 0,
+        "min": 0,
         "name": "value",
-        "type": "text",
-        "system": false,
-        "required": true,
+        "pattern": "",
         "presentable": false,
-        "unique": false,
-        "options": {
-          "min": null,
-          "max": null,
-          "pattern": ""
-        }
+        "primaryKey": false,
+        "required": true,
+        "system": false,
+        "type": "text"
       },
       {
+        "hidden": false,
         "id": "verification_expiresAt",
+        "max": "",
+        "min": "",
         "name": "expiresAt",
-        "type": "date",
-        "system": false,
+        "presentable": false,
+        "primaryKey": false,
         "required": true,
-        "presentable": false,
-        "unique": false,
-        "options": {
-          "min": "",
-          "max": ""
-        }
+        "system": false,
+        "type": "date"
       },
       {
+        "hidden": false,
         "id": "verification_createdAt",
+        "max": "",
+        "min": "",
         "name": "createdAt",
-        "type": "date",
-        "system": false,
-        "required": false,
         "presentable": false,
-        "unique": false,
-        "options": {
-          "min": "",
-          "max": ""
-        }
+        "primaryKey": false,
+        "required": false,
+        "system": false,
+        "type": "date"
       },
       {
+        "hidden": false,
         "id": "verification_updatedAt",
+        "max": "",
+        "min": "",
         "name": "updatedAt",
-        "type": "date",
-        "system": false,
-        "required": false,
         "presentable": false,
-        "unique": false,
-        "options": {
-          "min": "",
-          "max": ""
-        }
+        "primaryKey": false,
+        "required": false,
+        "system": false,
+        "type": "date"
       }
     ],
     "indexes": [],
@@ -458,7 +484,6 @@
     "viewRule": null,
     "createRule": null,
     "updateRule": null,
-    "deleteRule": null,
-    "options": {}
+    "deleteRule": null
   }
 ]
