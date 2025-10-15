@@ -292,4 +292,3 @@ pnpm lint
 
 ## License
 
-MIT
