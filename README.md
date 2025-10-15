@@ -76,17 +76,22 @@ You must create the required collections in PocketBase. The easiest way is to im
 
 1. Open PocketBase admin dashboard (`http://127.0.0.1:8090/_/`)
 2. Go to **Settings > Import collections**
-3. Import `schema/pocketbase.collections.json` from this repo
-4. Click **Import**
+3. Copy the contents of `schema/pocketbase.collections.json` from this repo
+4. Paste into the import dialog
+5. switch "merge" on if you dont want to lost your existing collections
+6. Review the detected changes and click **Confirm and import**
 
 **Collections created:**
 
-- `user` / `users`
-- `session` / `sessions`
-- `account` / `accounts`
-- `verification` / `verifications`
+- `user` - Stores user information (name, email, emailVerified, image, timestamps)
+- `session` - Stores active sessions (userId, token, expiresAt, IP, user agent, timestamps)
+- `account` - Stores OAuth/social accounts (userId, provider info, tokens, timestamps)
+- `verification` - Stores verification tokens (identifier, value, expiresAt, timestamps)
 
-> **Note:** Set `usePlural: true` in the adapter if you use plural names.
+> **Note:** The schema uses singular names by default. Set `usePlural: false` in the adapter config to match.
+> **Note2:** Better-auth adapter will not use the default "users" collection witch is a different type (Auth collection)
+
+
 
 ---
 
@@ -106,7 +111,7 @@ await pb.admins.authWithPassword("admin@example.com", "your-admin-password");
 export const auth = betterAuth({
   database: pocketBaseAdapter({
     pb,
-    usePlural: false, // or true if you use plural collection names
+    usePlural: false, // IMPORTANT: Use false to match the singular schema names (user, session, account, verification)
     debugLogs: false, // set true for verbose logs
   }),
   emailAndPassword: { enabled: true },
@@ -127,7 +132,7 @@ export const auth = betterAuth({
       // Option 2: JWT admin token (recommended for serverless/CI)
       token: process.env.POCKETBASE_TOKEN,
     },
-    usePlural: true,
+    usePlural: false, // Set to false to match the provided schema (singular names)
     debugLogs: process.env.NODE_ENV === "development",
   }),
   emailAndPassword: { enabled: true },
@@ -161,8 +166,8 @@ export const { useSession, signIn, signOut, signUp } = authClient;
 
 | Option      | Type                                                        | Default   | Description                                      |
 |-------------|-------------------------------------------------------------|-----------|--------------------------------------------------|
-| `pb`        | `PocketBase \| { url: string; adminEmail?: string; adminPassword?: string }` | (required) | PocketBase instance or config object             |
-| `usePlural` | `boolean`                                                   | `true`    | Use plural collection names (users, sessions, ...) |
+| `pb`        | `PocketBase \| { url: string; adminEmail?: string; adminPassword?: string; token?: string }` | (required) | PocketBase instance or config object             |
+| `usePlural` | `boolean`                                                   | `true`    | Use plural collection names. Set to `false` for the provided schema which uses singular names (user, session, account, verification) |
 | `debugLogs` | `boolean`                                                   | `false`   | Enable debug logging                             |
 
 
@@ -172,16 +177,25 @@ export const { useSession, signIn, signOut, signUp } = authClient;
 
 ```
 ├── src/
-│   ├── index.ts         # Main adapter implementation
-│   └── index.test.ts    # Unit tests
+│   ├── index.ts              # Main adapter implementation
+│   └── adapter.test.ts       # Unit tests
 ├── schema/
-│   └── pocketbase.collections.json  # Importable PocketBase schema
-├── dist/                # Build output
+│   └── pocketbase.collections.json  # Importable PocketBase schema (PocketBase v0.23+ format)
+├── dist/                     # Build output
 ├── package.json
 ├── tsconfig.json
 ├── tsup.config.ts
-├── vitest.config.ts
+└── vitest.config.ts
 ```
+
+### Schema Format
+
+The provided `pocketbase.collections.json` uses the **new PocketBase v0.23+ format** with:
+- `fields` array instead of `schema`
+- Flattened field properties (no nested `options`)
+- Explicit `id`, `hidden`, `presentable`, `primaryKey` properties for each field
+
+If you're using an older version of PocketBase, you may need to manually create the collections through the admin UI.
 
 ---
 
@@ -254,6 +268,15 @@ pnpm lint
 
 ## Troubleshooting
 
+### "Invalid collections configuration"
+- Make sure you're using PocketBase v0.23 or later (the schema uses the new `fields` format)
+- Verify the JSON is valid (you can use a JSON validator)
+- Ensure you copied the entire file contents
+
+### "Collections created but no fields imported"
+- This indicates an older PocketBase version that expects `schema` instead of `fields`
+- Solution: Upgrade to PocketBase v0.23+, or manually create collections through the UI
+
 ### "Cannot connect to PocketBase"
 - Ensure PocketBase is running and the URL is correct
 - Check your `POCKETBASE_URL` env variable
@@ -263,8 +286,9 @@ pnpm lint
 - Ensure the admin account exists in PocketBase
 
 ### "Collection not found"
-- Import the schema file in PocketBase admin dashboard
-- Ensure `usePlural` matches your collection names
+- Import the schema file in PocketBase admin dashboard (Settings > Import collections)
+- Ensure `usePlural` matches your collection names (use `false` for the provided schema)
+- Verify collections exist: user, session, account, verification (singular) OR users, sessions, accounts, verifications (plural)
 
 ### "Operation not permitted"
 - Make sure you are using admin credentials (never expose these to the client!)
