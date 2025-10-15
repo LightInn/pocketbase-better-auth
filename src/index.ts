@@ -125,7 +125,7 @@ export const pocketBaseAdapter = ({
     // Fallback to adminEmail/adminPassword
     if (pbConfig.adminEmail && pbConfig.adminPassword) {
       if (!pb.authStore.isValid) {
-        await pb.admins.authWithPassword(pbConfig.adminEmail, pbConfig.adminPassword);
+        await pb.collection("_superusers").authWithPassword(pbConfig.adminEmail, pbConfig.adminPassword);
       }
     }
   };
