@@ -82,9 +82,7 @@
         }
       }
     ],
-    "indexes": [
-      "CREATE INDEX idx_user_email ON user (email)"
-    ],
+    "indexes": [],
     "listRule": null,
     "viewRule": null,
     "createRule": null,
@@ -194,10 +192,7 @@
         }
       }
     ],
-    "indexes": [
-      "CREATE INDEX idx_session_token ON session (token)",
-      "CREATE INDEX idx_session_userId ON session (userId)"
-    ],
+    "indexes": [],
     "listRule": null,
     "viewRule": null,
     "createRule": null,
@@ -376,10 +371,7 @@
         }
       }
     ],
-    "indexes": [
-      "CREATE INDEX idx_account_userId ON account (userId)",
-      "CREATE UNIQUE INDEX idx_account_provider_pair ON account (providerId, accountId)"
-    ],
+    "indexes": [],
     "listRule": null,
     "viewRule": null,
     "createRule": null,
@@ -461,10 +453,7 @@
         }
       }
     ],
-    "indexes": [
-      "CREATE INDEX idx_verification_identifier ON verification (identifier)",
-      "CREATE INDEX idx_verification_expiresAt ON verification (expiresAt)"
-    ],
+    "indexes": [],
     "listRule": null,
     "viewRule": null,
     "createRule": null,
