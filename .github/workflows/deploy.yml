@@ -12,12 +12,6 @@ on:
 
 jobs:
   publish:
-    if: |
-      github.ref == 'refs/heads/main' &&
-      (
-        contains(github.event.head_commit.message, 'version') ||
-        contains(github.event.head_commit.message, 'release')
-      )
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -33,6 +27,17 @@ jobs:
         run: pnpm install
       - name: Build
         run: pnpm build
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Bump version
+        run: pnpm version patch --no-git-tag-version
+      - name: Commit version bump
+        run: |
+          git add package.json
+          git commit -m "chore: bump version [skip ci]"
+          git push
       - name: Publish to npm
         run: pnpm publish --no-git-checks
         env:
