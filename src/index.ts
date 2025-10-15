@@ -140,7 +140,7 @@ export const pocketBaseAdapter = ({
       supportsBooleans: true,
       supportsJSON: false,
       supportsNumericIds: false,
-      disableIdGeneration: false,
+      disableIdGeneration: true, // Let PocketBase generate its own IDs (15 chars)
     },
     adapter: ({ options, getFieldName, getDefaultModelName, getModelName, debugLog }) => {
       return {
