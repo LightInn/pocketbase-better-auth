@@ -3,12 +3,6 @@ name: Deploy
 on:
   push:
     branches: [main]
-    paths:
-      - 'package.json'
-      - 'pnpm-lock.yaml'
-      - 'src/**'
-      - 'dist/**'
-      - '!**.md'
 
 jobs:
   publish:
