@@ -45,7 +45,7 @@
     "typescript": "^5.8.3",
     "vitest": "^4.0.0"
   },
-  "packageManager": "pnpm@10.24.0",
+  "packageManager": "pnpm@10.26.2",
   "dependencies": {
     "biome": "^0.3.3"
   }
