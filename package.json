@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "pocketbase-better-auth",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "Better Auth PocketBase Adapter",
   "homepage": "https://github.com/Lightinn/pocketbase-better-auth",
   "author": "Bréval LE FLOCH",
