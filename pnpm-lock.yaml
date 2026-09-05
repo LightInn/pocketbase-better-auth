@@ -19,8 +19,8 @@ importers:
         specifier: ^0.0.11
         version: 0.0.11(esbuild@0.28.0)
       pocketbase:
-        specifier: ^0.27.0
-        version: 0.27.0
+        specifier: ^0.28.0
+        version: 0.28.1
       tsup:
         specifier: ^8.4.0
         version: 8.5.1(postcss@8.5.16)(tsx@4.22.4)(typescript@6.0.3)
@@ -1478,8 +1478,8 @@ packages:
   pkg-types@1.3.1:
     resolution: {integrity: sha512-/Jm5M4RvtBFVkKWRu2BLUTNP8/M2a+UwuAX+ae4770q1qVGtfjG+WTCupoZixokjmHiry8uI+dlY8KXYV5HVVQ==}
 
-  pocketbase@0.27.0:
-    resolution: {integrity: sha512-K5N6d93UP/BNMbMnlZ6BUfy9VPCIvLyqhJFOsNI8OsZwzvKWEAfyD36boi5K4ECIOl5HMlo0TzuaeGdKpMwizQ==}
+  pocketbase@0.28.1:
+    resolution: {integrity: sha512-/3ihkq+rvfcs0MQgrK4sEElOg6gfenHW9S/O+3BSO+V1yT+4B10+9aT22uTQUPqze9ItwNtwWyY5ZmdgVCTdVA==}
 
   postcss-load-config@6.0.1:
     resolution: {integrity: sha512-oPtTM4oerL+UXmx+93ytZVN82RrlY/wPUV8IeDxFrzIjXOLF1pN+EmKPLbubvKHT2HC20xXsCAH2Z+CKV6Oz/g==}
@@ -2869,7 +2869,7 @@ snapshots:
       mlly: 1.8.0
       pathe: 2.0.3
 
-  pocketbase@0.27.0: {}
+  pocketbase@0.28.1: {}
 
   postcss-load-config@6.0.1(postcss@8.5.16)(tsx@4.22.4):
     dependencies:
